@@ -1,0 +1,110 @@
+#!/usr/bin/env php
+<?php
+require_once 'vendor/autoload.php';
+define("CONFIG",parse_ini_file('.env',true));
+use AramHamo\MvcCore\Schema;
+set_exception_handler(function($err){
+  echo "\033[31mError:\033[0m ".$err->getMessage()."\n";
+});
+/*{{{help*/
+function help(){
+$green = "\033[32m";
+$white = "\033[0m";
+echo "Usage:\n$green
+serve                     $white launch a local dev server$green
+migrate                   $white migrate all$green
+migrate$white <table>            migrate a specific table$green
+dropall                   $white drop all tables$green
+drop$white <table>               drop a specific table$green
+newpage$white <pagename> <path>  create new page\n";
+}
+/*}}}*/
+/*{{{migrate*/
+function migrate($migrationFile=''){
+if(CONFIG["DATABASE"]["SOFTWARE"] == "sqlite"){
+  if(!extension_loaded("pdo_sqlite")){
+    throw new Exception("pdo_sqlite module not loaded");
+    exit;
+  }
+}else if(CONFIG["DATABASE"]["SOFTWARE"] == "mysql"){
+  if(!extension_loaded("pdo_mysql")){
+    throw new Exception("pdo_mysql module not loaded");
+    exit;
+  }
+}
+  if(empty($migrationFile)){
+    $tables = glob("database/migrations/*.php");
+    foreach($tables as $table){
+      include $table;
+      echo "\033[32mCreating \033[0m". $GLOBALS['tableName']."\n";
+      $table::up();
+    }
+  }else{
+    include "database/migrations/$migrationFile.php";
+    echo "\033[32mCreating \033[0m". $GLOBALS['tableName']."\n";
+    $table::up();
+  }
+}
+/*}}}*/
+/*{{{drop*/
+function drop($migrationFile){
+    include "database/migrations/$migrationFile.php";
+    echo "\033[32mDeleting \033[0m". $GLOBALS['tableName']."\n";
+    $table::down();
+}
+/*}}}*/
+/*{{{dropall*/
+function dropall(){
+  $schema = new Schema;
+  $tables = array_reverse(glob("database/migrations/*.php"));
+  foreach($tables as $table){
+    include $table;
+    echo "\033[32mDeleting \033[0m". $GLOBALS["tableName"]."\n";
+    $schema->dropIfExists($GLOBALS["tableName"]);
+  }
+}
+/*}}}*/
+/*{{{newPage*/
+function newPage($pageName,$path){
+  if(file_exists("controllers/".ucfirst($pageName).".php")){
+    throw new Exception("Controller \033[32m".ucfirst($pageName)."\033[0m already exists");
+    exit;
+  }
+  if(file_exists("views/".strtolower($pageName).".php")){
+    throw new Exception("View \033[32m".strtolower($pageName)."\033[0m already exists");
+    exit;
+  }
+  include "templates/route.php";
+  include "templates/controller.php";
+  copy('templates/view.php',"views/".strtolower($pageName).".php");
+  $fController = fopen("controllers/".ucfirst($pageName.".php"),"w");
+  $fRoute = fopen("routes/".strtolower($pageName.".php"),"w");
+  fwrite($fController,$controllerTemplate);
+  fwrite($fRoute,$routeTemplate);
+}
+/*}}}*/
+if($argc < 2){
+  help();
+
+}elseif($argv[1] == "serve"){
+  shell_exec("php -S 0.0.0.0:8080 -t public");
+
+}elseif($argv[1] == "migrate"){
+  migrate($argv[2] ?? '');
+
+}elseif($argv[1] == "drop"){
+  if(!isset($argv[2])){help();exit;}
+  drop($argv[2]);
+
+}elseif($argv[1] == "dropall"){
+    dropall();
+
+}elseif($argv[1] == "newpage"){
+  if(!isset($argv[2])){help();exit;}
+  newPage($argv[2],$argv[3]);
+
+}else{
+  help();
+
+}
+// vim: fdm=marker

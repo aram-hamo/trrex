@@ -1,0 +1,26 @@
+{
+    "name": "aram-hamo/mvc",
+    "description": "Model View Controller Framework",
+    "type": "project",
+    "license": "GPL-3.0-or-later",
+    "autoload": {
+      "psr-4":{
+        "AramHamo\\Mvc\\":"Mvc/",
+        "AramHamo\\Mvc\\Controllers\\":"controllers/",
+        "AramHamo\\Mvc\\Models\\":"database/models/"
+      }
+    },
+    "authors": [
+        {
+            "name": "Aram Hamo",
+            "email": "contact@aramhamo.me"
+        }
+    ],
+    "require-dev": {
+        "phpstan/phpstan": "^1.10",
+        "phpunit/phpunit": "^10.0"
+    },
+    "require": {
+        "aram-hamo/mvc-core": "~0.4"
+    }
+}
