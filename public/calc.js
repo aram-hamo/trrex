@@ -11,41 +11,41 @@ function elementCheck(elmId) {
 }
 function updateRecords(){
   records = {
-    "player-0":[],
-    "player-1":[],
-    "player-2":[],
-    "player-3":[]
+    "player-0":{},
+    "player-1":{},
+    "player-2":{},
+    "player-3":{}
   };
-  records["player-0"] = [];
-  records["player-0"] = [
-    elementCheck("0-0-letoosh")*(-15),
-    elementCheck("0-0-king")*(-75),
-    elementCheck("0-0-trex"),
-    elementCheck("0-0-queens")*(-25),
-    elementCheck("0-0-dinnar")*(-10)
-  ];
+  records["player-0"] = {};
+  records["player-0"] = {
+    "0-0-letoosh":elementCheck("0-0-letoosh")*(-15),
+    "0-0-king":elementCheck("0-0-king")*(-75),
+    "0-0-trex":elementCheck("0-0-trex"),
+    "0-0-queens":elementCheck("0-0-queens")*(-25),
+    "0-0-dinnar":elementCheck("0-0-dinnar")*(-10)
+  };
   
-  records["player-1"] = [
-    elementCheck("1-0-letoosh")*(-15),
-    elementCheck("1-0-queens")*(-25),
-    elementCheck("1-0-dinnar")*(-10),
-    elementCheck("1-0-king")*(-75),
-    elementCheck("1-0-trex")
-  ];
-  records["player-2"] = [
-    elementCheck("2-0-letoosh")*(-15),
-    elementCheck("2-0-dinnar")*(-10),
-    elementCheck("2-0-trex"),
-    elementCheck("2-0-queens")*(-25),
-    elementCheck("2-0-king")*(-75)
-  ];
-  records["player-3"] = [
-    elementCheck("3-0-letoosh")*(-15),
-    elementCheck("3-0-queens")*(-25),
-    elementCheck("3-0-dinnar")*(-10),
-    elementCheck("3-0-king")*(-75),
-    elementCheck("3-0-trex")
-  ];
+  records["player-1"] = {
+    "1-0-letoosh":elementCheck("1-0-letoosh")*(-15),
+    "1-0-queens":elementCheck("1-0-queens")*(-25),
+    "1-0-dinnar":elementCheck("1-0-dinnar")*(-10),
+    "1-0-king":elementCheck("1-0-king")*(-75),
+    "1-0-trex":elementCheck("1-0-trex")
+  };
+  records["player-2"] = {
+    "2-0-letoosh":elementCheck("2-0-letoosh")*(-15),
+    "2-0-dinnar":elementCheck("2-0-dinnar")*(-10),
+    "2-0-trex":elementCheck("2-0-trex"),
+    "2-0-queens":elementCheck("2-0-queens")*(-25),
+    "2-0-king":elementCheck("2-0-king")*(-75)
+  };
+  records["player-3"] = {
+    "3-0-letoosh":elementCheck("3-0-letoosh")*(-15),
+    "3-0-queens":elementCheck("3-0-queens")*(-25),
+    "3-0-dinnar":elementCheck("3-0-dinnar")*(-10),
+    "3-0-king":elementCheck("3-0-king")*(-75),
+    "3-0-trex":elementCheck("3-0-trex")
+  };
 }
 // {{{ notPlayed
 function notPlayed(game){
