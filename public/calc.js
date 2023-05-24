@@ -1,6 +1,7 @@
 round = 0;
 var gamesCounter = 0;
 playedGames = [];
+// {{{ elementCheck
 function elementCheck(elmId) {
   var elem = document.getElementById(elmId);
   if(typeof elem == 'undefined' || elem == null) {
@@ -9,6 +10,31 @@ function elementCheck(elmId) {
     return elem.value;
   }
 }
+// }}}
+// {{{ updateUI
+function updateUI(){
+  for (var element in records["player-0"]) {
+    if(document.getElementById(element) !== null) {
+      document.getElementById(element).value = records["player-0"][element];
+    }
+  }
+  for (var element in records["player-1"]) {
+    if(document.getElementById(element) !== null) {
+      document.getElementById(element).value = records["player-1"][element];
+    }
+  }
+  for (var element in records["player-2"]) {
+    if(document.getElementById(element) !== null) {
+      document.getElementById(element).value = records["player-2"][element];
+    }
+  }
+  for (var element in records["player-3"]) {
+    if(document.getElementById(element) !== null) {
+      document.getElementById(element).value = records["player-3"][element];
+    }
+  }
+}
+// }}}
 function updateRecords(){
   records = {
     "player-0":{},
@@ -18,32 +44,32 @@ function updateRecords(){
   };
   records["player-0"] = {};
   records["player-0"] = {
-    "0-0-letoosh":elementCheck("0-0-letoosh")*(-15),
-    "0-0-king":elementCheck("0-0-king")*(-75),
+    "0-0-letoosh":elementCheck("0-0-letoosh"),
+    "0-0-king":elementCheck("0-0-king"),
     "0-0-trex":elementCheck("0-0-trex"),
-    "0-0-queens":elementCheck("0-0-queens")*(-25),
-    "0-0-dinnar":elementCheck("0-0-dinnar")*(-10)
+    "0-0-queens":elementCheck("0-0-queens"),
+    "0-0-dinnar":elementCheck("0-0-dinnar")
   };
   
   records["player-1"] = {
-    "1-0-letoosh":elementCheck("1-0-letoosh")*(-15),
-    "1-0-queens":elementCheck("1-0-queens")*(-25),
-    "1-0-dinnar":elementCheck("1-0-dinnar")*(-10),
-    "1-0-king":elementCheck("1-0-king")*(-75),
+    "1-0-letoosh":elementCheck("1-0-letoosh"),
+    "1-0-queens":elementCheck("1-0-queens"),
+    "1-0-dinnar":elementCheck("1-0-dinnar"),
+    "1-0-king":elementCheck("1-0-king"),
     "1-0-trex":elementCheck("1-0-trex")
   };
   records["player-2"] = {
-    "2-0-letoosh":elementCheck("2-0-letoosh")*(-15),
-    "2-0-dinnar":elementCheck("2-0-dinnar")*(-10),
+    "2-0-letoosh":elementCheck("2-0-letoosh"),
+    "2-0-dinnar":elementCheck("2-0-dinnar"),
     "2-0-trex":elementCheck("2-0-trex"),
-    "2-0-queens":elementCheck("2-0-queens")*(-25),
-    "2-0-king":elementCheck("2-0-king")*(-75)
+    "2-0-queens":elementCheck("2-0-queens"),
+    "2-0-king":elementCheck("2-0-king")
   };
   records["player-3"] = {
-    "3-0-letoosh":elementCheck("3-0-letoosh")*(-15),
-    "3-0-queens":elementCheck("3-0-queens")*(-25),
-    "3-0-dinnar":elementCheck("3-0-dinnar")*(-10),
-    "3-0-king":elementCheck("3-0-king")*(-75),
+    "3-0-letoosh":elementCheck("3-0-letoosh"),
+    "3-0-queens":elementCheck("3-0-queens"),
+    "3-0-dinnar":elementCheck("3-0-dinnar"),
+    "3-0-king":elementCheck("3-0-king"),
     "3-0-trex":elementCheck("3-0-trex")
   };
 }
@@ -92,17 +118,16 @@ function newGame(gameType){
       <td><input value="" readonly></td>
     </tr>`;
   }
-/// }}}
   if(notPlayed(gameType)){
   switch(gameType){
     case "queens":
       document.getElementById("game").innerHTML +=`
         <tr id=`+gameType+` >
           <td>Queens</td>
-          <td><input id="`+"0-"+round+"-"+gameType+`" value="`+elementCheck("0-"+round+"-"+gameType)+`" type=number min=0 max=4></input></td>
-          <td><input id="`+"1-"+round+"-"+gameType+`" value="`+elementCheck("0-"+round+"-"+gameType)+`" type=number min=0 max=4></td>
-          <td><input id="`+"2-"+round+"-"+gameType+`" value="`+elementCheck("0-"+round+"-"+gameType)+`" type=number min=0 max=4></td>
-          <td><input id="`+"3-"+round+"-"+gameType+`" value="`+elementCheck("0-"+round+"-"+gameType)+`" type=number min=0 max=4></td>
+          <td><input id="`+"0-"+round+"-"+gameType+`" type=number min=0 max=4></td>
+          <td><input id="`+"1-"+round+"-"+gameType+`" type=number min=0 max=4></td>
+          <td><input id="`+"2-"+round+"-"+gameType+`" type=number min=0 max=4></td>
+          <td><input id="`+"3-"+round+"-"+gameType+`" type=number min=0 max=4></td>
         </tr>`;
       gamesCounter++;
       playedGames[gamesCounter] = "queens";
@@ -111,10 +136,10 @@ function newGame(gameType){
       document.getElementById("game").innerHTML +=`
         <tr id=`+gameType+` >
           <td>Letoosh</td>
-          <td><input  id="`+"0-"+round+"-"+gameType+`" value=0 type=number min=0 max=13></td>
-          <td><input  id="`+"1-"+round+"-"+gameType+`" value=0 type=number min=0 max=13></td>
-          <td><input  id="`+"2-"+round+"-"+gameType+`" value=0 type=number min=0 max=13></td>
-          <td><input  id="`+"3-"+round+"-"+gameType+`" value=0 type=number min=0 max=13></td>
+          <td><input  id="`+"0-"+round+"-"+gameType+`" type=number min=0 max=13></td>
+          <td><input  id="`+"1-"+round+"-"+gameType+`" type=number min=0 max=13></td>
+          <td><input  id="`+"2-"+round+"-"+gameType+`" type=number min=0 max=13></td>
+          <td><input  id="`+"3-"+round+"-"+gameType+`" type=number min=0 max=13></td>
         </tr>`;
       gamesCounter++;
       playedGames[gamesCounter] = "letoosh";
@@ -123,10 +148,10 @@ function newGame(gameType){
       document.getElementById("game").innerHTML +=`
         <tr id=`+gameType+` >
           <td>king</td>
-          <td><input  id="`+"0-"+round+"-"+gameType+`" value=0 type=number min=0 max=1></td>
-          <td><input  id="`+"1-"+round+"-"+gameType+`" value=0 type=number min=0 max=1></td>
-          <td><input  id="`+"2-"+round+"-"+gameType+`" value=0 type=number min=0 max=1></td>
-          <td><input  id="`+"3-"+round+"-"+gameType+`" value=0 type=number min=0 max=1></td>
+          <td><input  id="`+"0-"+round+"-"+gameType+`" type=number min=0 max=1></td>
+          <td><input  id="`+"1-"+round+"-"+gameType+`" type=number min=0 max=1></td>
+          <td><input  id="`+"2-"+round+"-"+gameType+`" type=number min=0 max=1></td>
+          <td><input  id="`+"3-"+round+"-"+gameType+`" type=number min=0 max=1></td>
         </tr>`;
       gamesCounter++;
       playedGames[gamesCounter] = "king";
@@ -135,10 +160,10 @@ function newGame(gameType){
       document.getElementById("game").innerHTML +=`
         <tr id=`+gameType+` >
           <td>Trex</td>
-          <td><input  id="`+"0-"+round+"-"+gameType+`" value=0 type=number min=0 max=200></td>
-          <td><input  id="`+"1-"+round+"-"+gameType+`" value=0 type=number min=0 max=200></td>
-          <td><input  id="`+"2-"+round+"-"+gameType+`" value=0 type=number min=0 max=200></td>
-          <td><input  id="`+"3-"+round+"-"+gameType+`" value=0 type=number min=0 max=200></td>
+          <td><input  id="`+"0-"+round+"-"+gameType+`" type=number min=0 max=200></td>
+          <td><input  id="`+"1-"+round+"-"+gameType+`" type=number min=0 max=200></td>
+          <td><input  id="`+"2-"+round+"-"+gameType+`" type=number min=0 max=200></td>
+          <td><input  id="`+"3-"+round+"-"+gameType+`" type=number min=0 max=200></td>
         </tr>`;
       gamesCounter++;
       playedGames[gamesCounter] = "trex";
@@ -147,14 +172,16 @@ function newGame(gameType){
       document.getElementById("game").innerHTML +=`
         <tr id=`+gameType+` >
           <td>Dinnar</td>
-          <td><input  id="`+"0-"+round+"-"+gameType+`" value=0 type=number min=0 max=13></td>
-          <td><input  id="`+"1-"+round+"-"+gameType+`" value=0 type=number min=0 max=13></td>
-          <td><input  id="`+"2-"+round+"-"+gameType+`" value=0 type=number min=0 max=13></td>
-          <td><input  id="`+"3-"+round+"-"+gameType+`" value=0 type=number min=0 max=13></td>
+          <td><input  id="`+"0-"+round+"-"+gameType+`" type=number min=0 max=13></td>
+          <td><input  id="`+"1-"+round+"-"+gameType+`" type=number min=0 max=13></td>
+          <td><input  id="`+"2-"+round+"-"+gameType+`" type=number min=0 max=13></td>
+          <td><input  id="`+"3-"+round+"-"+gameType+`" type=number min=0 max=13></td>
         </tr>`;
       gamesCounter++;
       playedGames[gamesCounter] = "dinnar";
       break
   }
   }
+  updateUI();
 }
+/// }}}
