@@ -5,7 +5,7 @@ playedGames = [];
 function elementCheck(elmId) {
   var elem = document.getElementById(elmId);
   if(typeof elem == 'undefined' || elem == null) {
-    return "0";
+    return 0;
   }else{
     return elem.value;
   }
@@ -13,26 +13,82 @@ function elementCheck(elmId) {
 // }}}
 // {{{ updateUI
 function updateUI(){
+  player0record = 0;
   for (var element in records["player-0"]) {
     if(document.getElementById(element) !== null) {
       document.getElementById(element).value = records["player-0"][element];
+
+        if( /dinnar/.test(element)){
+          player0record = player0record + Number(records["player-0"][element])*10;
+        }else if( /king/.test(element)){
+          player0record = player0record + Number(records["player-0"][element])*75;
+        }else if( /letoosh/.test(element)){
+          player0record = player0record + Number(records["player-0"][element])*15;
+        }else if( /queens/.test(element)){
+          player0record = player0record + Number(records["player-0"][element])*25;
+        }else{
+          player0record = player0record + Number(records["player-0"][element]);
+        }
     }
   }
+  document.getElementById("player0record").value = player0record;
+
+  player1record = 0;
   for (var element in records["player-1"]) {
     if(document.getElementById(element) !== null) {
       document.getElementById(element).value = records["player-1"][element];
+        if( /dinnar/.test(element)){
+          player1record = player1record + Number(records["player-1"][element])*10;
+        }else if( /king/.test(element)){
+          player1record = player1record + Number(records["player-1"][element])*75;
+        }else if( /letoosh/.test(element)){
+          player1record = player1record + Number(records["player-1"][element])*15;
+        }else if( /queens/.test(element)){
+          player1record = player1record + Number(records["player-1"][element])*25;
+        }else{
+          player1record = player1record + Number(records["player-1"][element]);
+        }
     }
   }
+  document.getElementById("player1record").value = player1record;
+
+  player2record = 0;
   for (var element in records["player-2"]) {
     if(document.getElementById(element) !== null) {
       document.getElementById(element).value = records["player-2"][element];
+        if( /dinnar/.test(element)){
+          player2record = player2record + Number(records["player-2"][element])*10;
+        }else if( /king/.test(element)){
+          player2record = player2record + Number(records["player-2"][element])*75;
+        }else if( /letoosh/.test(element)){
+          player2record = player2record + Number(records["player-2"][element])*15;
+        }else if( /queens/.test(element)){
+          player2record = player2record + Number(records["player-2"][element])*25;
+        }else{
+          player2record = player2record + Number(records["player-2"][element]);
+        }
     }
   }
+  document.getElementById("player2record").value = player2record;
+
+  player3record = 0;
   for (var element in records["player-3"]) {
     if(document.getElementById(element) !== null) {
       document.getElementById(element).value = records["player-3"][element];
+        if( /dinnar/.test(element)){
+          player3record = player3record + Number(records["player-3"][element])*10;
+        }else if( /king/.test(element)){
+          player3record = player3record + Number(records["player-3"][element])*75;
+        }else if( /letoosh/.test(element)){
+          player3record = player3record + Number(records["player-3"][element])*15;
+        }else if( /queens/.test(element)){
+          player3record = player3record + Number(records["player-3"][element])*25;
+        }else{
+          player3record = player3record + Number(records["player-3"][element]);
+        }
     }
   }
+  document.getElementById("player3record").value = player3record;
 }
 // }}}
 function updateRecords(){
@@ -45,32 +101,92 @@ function updateRecords(){
   records["player-0"] = {};
   records["player-0"] = {
     "0-0-letoosh":elementCheck("0-0-letoosh"),
-    "0-0-king":elementCheck("0-0-king"),
-    "0-0-trex":elementCheck("0-0-trex"),
-    "0-0-queens":elementCheck("0-0-queens"),
-    "0-0-dinnar":elementCheck("0-0-dinnar")
+    "0-0-king":   elementCheck("0-0-king"),
+    "0-0-trex":   elementCheck("0-0-trex"),
+    "0-0-queens": elementCheck("0-0-queens"),
+    "0-0-dinnar": elementCheck("0-0-dinnar"),
+    "0-1-letoosh":elementCheck("0-1-letoosh"),
+    "0-1-king":   elementCheck("0-1-king"),
+    "0-1-trex":   elementCheck("0-1-trex"),
+    "0-1-queens": elementCheck("0-1-queens"),
+    "0-1-dinnar": elementCheck("0-1-dinnar"),
+    "0-2-letoosh":elementCheck("0-2-letoosh"),
+    "0-2-king":   elementCheck("0-2-king"),
+    "0-2-trex":   elementCheck("0-2-trex"),
+    "0-2-queens": elementCheck("0-2-queens"),
+    "0-2-dinnar": elementCheck("0-2-dinnar"),
+    "0-3-letoosh":elementCheck("0-3-letoosh"),
+    "0-3-king":   elementCheck("0-3-king"),
+    "0-3-trex":   elementCheck("0-3-trex"),
+    "0-3-queens": elementCheck("0-3-queens"),
+    "0-3-dinnar": elementCheck("0-3-dinnar")
   };
   
   records["player-1"] = {
     "1-0-letoosh":elementCheck("1-0-letoosh"),
-    "1-0-queens":elementCheck("1-0-queens"),
-    "1-0-dinnar":elementCheck("1-0-dinnar"),
-    "1-0-king":elementCheck("1-0-king"),
-    "1-0-trex":elementCheck("1-0-trex")
+    "1-0-king":   elementCheck("1-0-king"),
+    "1-0-trex":   elementCheck("1-0-trex"),
+    "1-0-queens": elementCheck("1-0-queens"),
+    "1-0-dinnar": elementCheck("1-0-dinnar"),
+    "1-1-letoosh":elementCheck("1-1-letoosh"),
+    "1-1-king":   elementCheck("1-1-king"),
+    "1-1-trex":   elementCheck("1-1-trex"),
+    "1-1-queens": elementCheck("1-1-queens"),
+    "1-1-dinnar": elementCheck("1-1-dinnar"),
+    "1-2-letoosh":elementCheck("1-2-letoosh"),
+    "1-2-king":   elementCheck("1-2-king"),
+    "1-2-trex":   elementCheck("1-2-trex"),
+    "1-2-queens": elementCheck("1-2-queens"),
+    "1-2-dinnar": elementCheck("1-2-dinnar"),
+    "1-3-letoosh":elementCheck("1-3-letoosh"),
+    "1-3-king":   elementCheck("1-3-king"),
+    "1-3-trex":   elementCheck("1-3-trex"),
+    "1-3-queens": elementCheck("1-3-queens"),
+    "1-3-dinnar": elementCheck("1-3-dinnar")
   };
   records["player-2"] = {
     "2-0-letoosh":elementCheck("2-0-letoosh"),
-    "2-0-dinnar":elementCheck("2-0-dinnar"),
-    "2-0-trex":elementCheck("2-0-trex"),
-    "2-0-queens":elementCheck("2-0-queens"),
-    "2-0-king":elementCheck("2-0-king")
+    "2-0-king":   elementCheck("2-0-king"),
+    "2-0-trex":   elementCheck("2-0-trex"),
+    "2-0-queens": elementCheck("2-0-queens"),
+    "2-0-dinnar": elementCheck("2-0-dinnar"),
+    "2-1-letoosh":elementCheck("2-1-letoosh"),
+    "2-1-king":   elementCheck("2-1-king"),
+    "2-1-trex":   elementCheck("2-1-trex"),
+    "2-1-queens": elementCheck("2-1-queens"),
+    "2-1-dinnar": elementCheck("2-1-dinnar"),
+    "2-2-letoosh":elementCheck("2-2-letoosh"),
+    "2-2-king":   elementCheck("2-2-king"),
+    "2-2-trex":   elementCheck("2-2-trex"),
+    "2-2-queens": elementCheck("2-2-queens"),
+    "2-2-dinnar": elementCheck("2-2-dinnar"),
+    "2-3-letoosh":elementCheck("2-3-letoosh"),
+    "2-3-king":   elementCheck("2-3-king"),
+    "2-3-trex":   elementCheck("2-3-trex"),
+    "2-3-queens": elementCheck("2-3-queens"),
+    "2-3-dinnar": elementCheck("2-3-dinnar")
   };
   records["player-3"] = {
     "3-0-letoosh":elementCheck("3-0-letoosh"),
-    "3-0-queens":elementCheck("3-0-queens"),
-    "3-0-dinnar":elementCheck("3-0-dinnar"),
-    "3-0-king":elementCheck("3-0-king"),
-    "3-0-trex":elementCheck("3-0-trex")
+    "3-0-king":   elementCheck("3-0-king"),
+    "3-0-trex":   elementCheck("3-0-trex"),
+    "3-0-queens": elementCheck("3-0-queens"),
+    "3-0-dinnar": elementCheck("3-0-dinnar"),
+    "3-1-letoosh":elementCheck("3-1-letoosh"),
+    "3-1-king":   elementCheck("3-1-king"),
+    "3-1-trex":   elementCheck("3-1-trex"),
+    "3-1-queens": elementCheck("3-1-queens"),
+    "3-1-dinnar": elementCheck("3-1-dinnar"),
+    "3-2-letoosh":elementCheck("3-2-letoosh"),
+    "3-2-king":   elementCheck("3-2-king"),
+    "3-2-trex":   elementCheck("3-2-trex"),
+    "3-2-queens": elementCheck("3-2-queens"),
+    "3-2-dinnar": elementCheck("3-2-dinnar"),
+    "3-3-letoosh":elementCheck("3-3-letoosh"),
+    "3-3-king":   elementCheck("3-3-king"),
+    "3-3-trex":   elementCheck("3-3-trex"),
+    "3-3-queens": elementCheck("3-3-queens"),
+    "3-3-dinnar": elementCheck("3-3-dinnar")
   };
 }
 // {{{ notPlayed
@@ -112,10 +228,10 @@ function newGame(gameType){
   document.getElementById("record").innerHTML +=`
     <tr id=records>
       <td>Records</td>
-      <td><input value="" readonly></td>
-      <td><input value="" readonly></td>
-      <td><input value="" readonly></td>
-      <td><input value="" readonly></td>
+      <td><input id="player0record" value="" readonly></td>
+      <td><input id="player1record" value="" readonly></td>
+      <td><input id="player2record" value="" readonly></td>
+      <td><input id="player3record" value="" readonly></td>
     </tr>`;
   }
   if(notPlayed(gameType)){
@@ -160,10 +276,10 @@ function newGame(gameType){
       document.getElementById("game").innerHTML +=`
         <tr id=`+gameType+` >
           <td>Trex</td>
-          <td><input  id="`+"0-"+round+"-"+gameType+`" type=number min=0 max=200></td>
-          <td><input  id="`+"1-"+round+"-"+gameType+`" type=number min=0 max=200></td>
-          <td><input  id="`+"2-"+round+"-"+gameType+`" type=number min=0 max=200></td>
-          <td><input  id="`+"3-"+round+"-"+gameType+`" type=number min=0 max=200></td>
+          <td><input  id="`+"0-"+round+"-"+gameType+`" step="50" type=number min=0 max=200></td>
+          <td><input  id="`+"1-"+round+"-"+gameType+`" step="50" type=number min=0 max=200></td>
+          <td><input  id="`+"2-"+round+"-"+gameType+`" step="50" type=number min=0 max=200></td>
+          <td><input  id="`+"3-"+round+"-"+gameType+`" step="50" type=number min=0 max=200></td>
         </tr>`;
       gamesCounter++;
       playedGames[gamesCounter] = "trex";
