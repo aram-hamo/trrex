@@ -10,6 +10,16 @@ table,td{
   margin:0px;
   border:solid 1px;
 }
+table{
+  width:100%;
+}
+input{
+  width:99%;
+}
+*{
+  margin:unset;
+  text-decoration:unset;
+}
 </style>
 <table id=game>
 </table>
