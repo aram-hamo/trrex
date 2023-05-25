@@ -20,6 +20,11 @@ input{
   margin:unset;
   text-decoration:unset;
 }
+input{
+  border: 0px;
+  margin:0px;
+  padding:0px;
+}
 </style>
 <table id=game>
 </table>

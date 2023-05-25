@@ -251,10 +251,10 @@ function newGame(gameType){
       document.getElementById("game").innerHTML +=`
         <tr id=`+gameType+` >
           <td>Queens</td>
-          <td><input onclick="updateRecords();updateUI();" id="`+"0-"+round+"-"+gameType+`" type=number min=0 max=4></td>
-          <td><input onclick="updateRecords();updateUI();" id="`+"1-"+round+"-"+gameType+`" type=number min=0 max=4></td>
-          <td><input onclick="updateRecords();updateUI();" id="`+"2-"+round+"-"+gameType+`" type=number min=0 max=4></td>
-          <td><input onclick="updateRecords();updateUI();" id="`+"3-"+round+"-"+gameType+`" type=number min=0 max=4></td>
+          <td><input onchange="updateRecords();updateUI();" id="`+"0-"+round+"-"+gameType+`" type=number min=0 max=4></td>
+          <td><input onchange="updateRecords();updateUI();" id="`+"1-"+round+"-"+gameType+`" type=number min=0 max=4></td>
+          <td><input onchange="updateRecords();updateUI();" id="`+"2-"+round+"-"+gameType+`" type=number min=0 max=4></td>
+          <td><input onchange="updateRecords();updateUI();" id="`+"3-"+round+"-"+gameType+`" type=number min=0 max=4></td>
         </tr>`;
       gamesCounter++;
       playedGames[gamesCounter] = "queens";
@@ -263,10 +263,10 @@ function newGame(gameType){
       document.getElementById("game").innerHTML +=`
         <tr id=`+gameType+` >
           <td>Letoosh</td>
-          <td><input onclick="updateRecords();updateUI();" id="`+"0-"+round+"-"+gameType+`" type=number min=0 max=13></td>
-          <td><input onclick="updateRecords();updateUI();" id="`+"1-"+round+"-"+gameType+`" type=number min=0 max=13></td>
-          <td><input onclick="updateRecords();updateUI();" id="`+"2-"+round+"-"+gameType+`" type=number min=0 max=13></td>
-          <td><input onclick="updateRecords();updateUI();" id="`+"3-"+round+"-"+gameType+`" type=number min=0 max=13></td>
+          <td><input onchange="updateRecords();updateUI();" id="`+"0-"+round+"-"+gameType+`" type=number min=0 max=13></td>
+          <td><input onchange="updateRecords();updateUI();" id="`+"1-"+round+"-"+gameType+`" type=number min=0 max=13></td>
+          <td><input onchange="updateRecords();updateUI();" id="`+"2-"+round+"-"+gameType+`" type=number min=0 max=13></td>
+          <td><input onchange="updateRecords();updateUI();" id="`+"3-"+round+"-"+gameType+`" type=number min=0 max=13></td>
         </tr>`;
       gamesCounter++;
       playedGames[gamesCounter] = "letoosh";
@@ -275,10 +275,10 @@ function newGame(gameType){
       document.getElementById("game").innerHTML +=`
         <tr id=`+gameType+` >
           <td>king</td>
-          <td><input onclick="updateRecords();updateUI();" id="`+"0-"+round+"-"+gameType+`" type=number min=0 max=1></td>
-          <td><input onclick="updateRecords();updateUI();" id="`+"1-"+round+"-"+gameType+`" type=number min=0 max=1></td>
-          <td><input onclick="updateRecords();updateUI();" id="`+"2-"+round+"-"+gameType+`" type=number min=0 max=1></td>
-          <td><input onclick="updateRecords();updateUI();" id="`+"3-"+round+"-"+gameType+`" type=number min=0 max=1></td>
+          <td><input onchange="updateRecords();updateUI();" id="`+"0-"+round+"-"+gameType+`" type=number min=0 max=1></td>
+          <td><input onchange="updateRecords();updateUI();" id="`+"1-"+round+"-"+gameType+`" type=number min=0 max=1></td>
+          <td><input onchange="updateRecords();updateUI();" id="`+"2-"+round+"-"+gameType+`" type=number min=0 max=1></td>
+          <td><input onchange="updateRecords();updateUI();" id="`+"3-"+round+"-"+gameType+`" type=number min=0 max=1></td>
         </tr>`;
       gamesCounter++;
       playedGames[gamesCounter] = "king";
@@ -287,10 +287,10 @@ function newGame(gameType){
       document.getElementById("game").innerHTML +=`
         <tr id=`+gameType+` >
           <td>Trex</td>
-          <td><input onclick="updateRecords();updateUI();" id="`+"0-"+round+"-"+gameType+`" step="50" type=number min=0 max=200></td>
-          <td><input onclick="updateRecords();updateUI();" id="`+"1-"+round+"-"+gameType+`" step="50" type=number min=0 max=200></td>
-          <td><input onclick="updateRecords();updateUI();" id="`+"2-"+round+"-"+gameType+`" step="50" type=number min=0 max=200></td>
-          <td><input onclick="updateRecords();updateUI();" id="`+"3-"+round+"-"+gameType+`" step="50" type=number min=0 max=200></td>
+          <td><input onchange="updateRecords();updateUI();" id="`+"0-"+round+"-"+gameType+`" step="50" type=number min=0 max=200></td>
+          <td><input onchange="updateRecords();updateUI();" id="`+"1-"+round+"-"+gameType+`" step="50" type=number min=0 max=200></td>
+          <td><input onchange="updateRecords();updateUI();" id="`+"2-"+round+"-"+gameType+`" step="50" type=number min=0 max=200></td>
+          <td><input onchange="updateRecords();updateUI();" id="`+"3-"+round+"-"+gameType+`" step="50" type=number min=0 max=200></td>
         </tr>`;
       gamesCounter++;
       playedGames[gamesCounter] = "trex";
@@ -299,10 +299,10 @@ function newGame(gameType){
       document.getElementById("game").innerHTML +=`
         <tr id=`+gameType+` >
           <td>Dinnar</td>
-          <td><input onclick="updateRecords();updateUI();" id="`+"0-"+round+"-"+gameType+`" type=number min=0 max=13></td>
-          <td><input onclick="updateRecords();updateUI();" id="`+"1-"+round+"-"+gameType+`" type=number min=0 max=13></td>
-          <td><input onclick="updateRecords();updateUI();" id="`+"2-"+round+"-"+gameType+`" type=number min=0 max=13></td>
-          <td><input onclick="updateRecords();updateUI();" id="`+"3-"+round+"-"+gameType+`" type=number min=0 max=13></td>
+          <td><input onchange="updateRecords();updateUI();" id="`+"0-"+round+"-"+gameType+`" type=number min=0 max=13></td>
+          <td><input onchange="updateRecords();updateUI();" id="`+"1-"+round+"-"+gameType+`" type=number min=0 max=13></td>
+          <td><input onchange="updateRecords();updateUI();" id="`+"2-"+round+"-"+gameType+`" type=number min=0 max=13></td>
+          <td><input onchange="updateRecords();updateUI();" id="`+"3-"+round+"-"+gameType+`" type=number min=0 max=13></td>
         </tr>`;
       gamesCounter++;
       playedGames[gamesCounter] = "dinnar";
