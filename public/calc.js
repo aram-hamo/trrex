@@ -19,13 +19,13 @@ function updateUI(){
       document.getElementById(element).value = records["player-0"][element];
 
         if( /dinnar/.test(element)){
-          player0record = player0record + Number(records["player-0"][element])*10;
+          player0record = player0record + Number(records["player-0"][element])*-10;
         }else if( /king/.test(element)){
-          player0record = player0record + Number(records["player-0"][element])*75;
+          player0record = player0record + Number(records["player-0"][element])*-75;
         }else if( /letoosh/.test(element)){
-          player0record = player0record + Number(records["player-0"][element])*15;
+          player0record = player0record + Number(records["player-0"][element])*-15;
         }else if( /queens/.test(element)){
-          player0record = player0record + Number(records["player-0"][element])*25;
+          player0record = player0record + Number(records["player-0"][element])*-25;
         }else{
           player0record = player0record + Number(records["player-0"][element]);
         }
@@ -38,13 +38,13 @@ function updateUI(){
     if(document.getElementById(element) !== null) {
       document.getElementById(element).value = records["player-1"][element];
         if( /dinnar/.test(element)){
-          player1record = player1record + Number(records["player-1"][element])*10;
+          player1record = player1record + Number(records["player-1"][element])*-10;
         }else if( /king/.test(element)){
-          player1record = player1record + Number(records["player-1"][element])*75;
+          player1record = player1record + Number(records["player-1"][element])*-75;
         }else if( /letoosh/.test(element)){
-          player1record = player1record + Number(records["player-1"][element])*15;
+          player1record = player1record + Number(records["player-1"][element])*-15;
         }else if( /queens/.test(element)){
-          player1record = player1record + Number(records["player-1"][element])*25;
+          player1record = player1record + Number(records["player-1"][element])*-25;
         }else{
           player1record = player1record + Number(records["player-1"][element]);
         }
@@ -57,13 +57,13 @@ function updateUI(){
     if(document.getElementById(element) !== null) {
       document.getElementById(element).value = records["player-2"][element];
         if( /dinnar/.test(element)){
-          player2record = player2record + Number(records["player-2"][element])*10;
+          player2record = player2record + Number(records["player-2"][element])*-10;
         }else if( /king/.test(element)){
-          player2record = player2record + Number(records["player-2"][element])*75;
+          player2record = player2record + Number(records["player-2"][element])*-75;
         }else if( /letoosh/.test(element)){
-          player2record = player2record + Number(records["player-2"][element])*15;
+          player2record = player2record + Number(records["player-2"][element])*-15;
         }else if( /queens/.test(element)){
-          player2record = player2record + Number(records["player-2"][element])*25;
+          player2record = player2record + Number(records["player-2"][element])*-25;
         }else{
           player2record = player2record + Number(records["player-2"][element]);
         }
@@ -76,22 +76,33 @@ function updateUI(){
     if(document.getElementById(element) !== null) {
       document.getElementById(element).value = records["player-3"][element];
         if( /dinnar/.test(element)){
-          player3record = player3record + Number(records["player-3"][element])*10;
+          player3record = player3record + Number(records["player-3"][element])*-10;
         }else if( /king/.test(element)){
-          player3record = player3record + Number(records["player-3"][element])*75;
+          player3record = player3record + Number(records["player-3"][element])*-75;
         }else if( /letoosh/.test(element)){
-          player3record = player3record + Number(records["player-3"][element])*15;
+          player3record = player3record + Number(records["player-3"][element])*-15;
         }else if( /queens/.test(element)){
-          player3record = player3record + Number(records["player-3"][element])*25;
+          player3record = player3record + Number(records["player-3"][element])*-25;
         }else{
           player3record = player3record + Number(records["player-3"][element]);
         }
     }
   }
   document.getElementById("player3record").value = player3record;
+
+  document.getElementById("displayName0").value = displayNames["0"];
+  document.getElementById("displayName1").value = displayNames["1"];
+  document.getElementById("displayName2").value = displayNames["2"];
+  document.getElementById("displayName3").value = displayNames["3"];
 }
 // }}}
 function updateRecords(){
+  displayNames = {
+    "0":"Player 0",
+    "1":"Player 1",
+    "2":"Player 2",
+    "3":"Player 3"
+  };
   records = {
     "player-0":{},
     "player-1":{},
@@ -220,10 +231,10 @@ function newGame(gameType){
   document.getElementById("game").innerHTML +=`
     <tr id=players>
       <td>Game</td>
-      <td><input value="Player 1"></td>
-      <td><input value="Player 2"></td>
-      <td><input value="Player 3"></td>
-      <td><input value="Player 4"></td>
+      <td><input id="displayName0" value="Player 1"></td>
+      <td><input id="displayName1" value="Player 2"></td>
+      <td><input id="displayName2" value="Player 3"></td>
+      <td><input id="displayName3" value="Player 4"></td>
     </tr>`;
   document.getElementById("record").innerHTML +=`
     <tr id=records>
