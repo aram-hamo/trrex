@@ -37,6 +37,6 @@ input{
   <button onclick="newGame('trex');">Trex</button>
   <button onclick="newGame('dinnar');">Dinnar</button>
 </div>
-<script src=calc.js></script>
+<script src=/calc.js></script>
 </body>
 </html>
