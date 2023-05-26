@@ -31,11 +31,11 @@ input{
 <table id=record>
 </table>
 <div id=newGameButtons>
-  <button onclick="newGame('queens');">Queens</button>
-  <button onclick="newGame('letoosh');">Letoosh</button>
-  <button onclick="newGame('king');">King</button>
-  <button onclick="newGame('trex');">Trex</button>
-  <button onclick="newGame('dinnar');">Dinnar</button>
+  <button id="newQueensGameButton" onclick="newGame('queens');">Queens</button>
+  <button id="newLetooshGameButton" onclick="newGame('letoosh');">Letoosh</button>
+  <button id="newKingGameButton" onclick="newGame('king');">King</button>
+  <button id="newTrexGameButton" onclick="newGame('trex');">Trex</button>
+  <button id="newDinnarGameButton" onclick="newGame('dinnar');">Dinnar</button>
 </div>
 <script src=/calc.js></script>
 </body>

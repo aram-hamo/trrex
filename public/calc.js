@@ -13,6 +13,13 @@ function elementCheck(elmId) {
 // }}}
 // {{{ updateUI
 function updateUI(){
+  if(playedGames.length >= 6){
+    document.getElementById("newDinnarGameButton").style.display = "";
+    document.getElementById("newLetooshGameButton").style.display = "";
+    document.getElementById("newKingGameButton").style.display = "";
+    document.getElementById("newTrexGameButton").style.display = "";
+    document.getElementById("newQueensGameButton").style.display = "";
+  }
   player0record = 0;
   for (var element in records["player-0"]) {
     if(document.getElementById(element) !== null) {
@@ -248,6 +255,7 @@ function newGame(gameType){
   if(notPlayed(gameType)){
   switch(gameType){
     case "queens":
+      document.getElementById("newQueensGameButton").style.display = "none";
       document.getElementById("game").innerHTML +=`
         <tr id=`+gameType+` >
           <td>Queens</td>
@@ -260,6 +268,7 @@ function newGame(gameType){
       playedGames[gamesCounter] = "queens";
       break;
     case "letoosh": 
+      document.getElementById("newLetooshGameButton").style.display = "none";
       document.getElementById("game").innerHTML +=`
         <tr id=`+gameType+` >
           <td>Letoosh</td>
@@ -272,6 +281,7 @@ function newGame(gameType){
       playedGames[gamesCounter] = "letoosh";
       break
     case "king": 
+      document.getElementById("newKingGameButton").style.display = "none";
       document.getElementById("game").innerHTML +=`
         <tr id=`+gameType+` >
           <td>king</td>
@@ -284,6 +294,7 @@ function newGame(gameType){
       playedGames[gamesCounter] = "king";
       break
     case "trex": 
+      document.getElementById("newTrexGameButton").style.display = "none";
       document.getElementById("game").innerHTML +=`
         <tr id=`+gameType+` >
           <td>Trex</td>
@@ -296,6 +307,7 @@ function newGame(gameType){
       playedGames[gamesCounter] = "trex";
       break
     case "dinnar": 
+      document.getElementById("newDinnarGameButton").style.display = "none";
       document.getElementById("game").innerHTML +=`
         <tr id=`+gameType+` >
           <td>Dinnar</td>
