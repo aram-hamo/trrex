@@ -1,0 +1,16 @@
+{
+  "short_name": "Trex Calculator",
+  "name": "Trex Calculator",
+  "start_url": "/",
+  "background_color": "#fff",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#fff",
+  "icons": [{
+    "src": "icon.png",
+    "sizes": "512x512",
+    "type": "image/png",
+    "purpose": "any maskable"
+  }]
+}
+
