@@ -103,6 +103,7 @@ function updateUI(){
   document.getElementById("displayName3").value = displayNames["3"];
 }
 // }}}
+// {{{ updateRecords
 function updateRecords(){
   displayNames = {
     "0":"Player 0",
@@ -207,6 +208,7 @@ function updateRecords(){
     "3-3-dinnar": elementCheck("3-3-dinnar")
   };
 }
+// }}}
 // {{{ notPlayed
 function notPlayed(game){
   if(playedGames.length >= 6){
@@ -246,10 +248,10 @@ function newGame(gameType){
   document.getElementById("record").innerHTML +=`
     <tr id=records>
       <td>Records</td>
-      <td><input id="player0record" value="" readonly></td>
-      <td><input id="player1record" value="" readonly></td>
-      <td><input id="player2record" value="" readonly></td>
-      <td><input id="player3record" value="" readonly></td>
+      <td><input id="player0record" readonly></td>
+      <td><input id="player1record" readonly></td>
+      <td><input id="player2record" readonly></td>
+      <td><input id="player3record" readonly></td>
     </tr>`;
   }
   if(notPlayed(gameType)){
