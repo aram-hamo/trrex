@@ -1,7 +1,7 @@
 {
   "short_name": "Trex Calculator",
   "name": "Trex Calculator",
-  "start_url": "http://trex.aramhamo.me/",
+  "start_url": "https://trex.aramhamo.me/",
   "background_color": "#fff",
   "display": "standalone",
   "scope": "/",
