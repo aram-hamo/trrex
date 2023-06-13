@@ -59,5 +59,11 @@ input{
   <button id="newDinnarGameButton" onclick="newGame('dinnar');">Dinnar</button>
 </div>
 <script src=calc.js></script>
+<script>
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register(window.location.protocol+'//'+window.location.host+"/worker.js")
+  .catch((err) => console.log('ERROR: '+err))
+}
+</script>
 </body>
 </html>
