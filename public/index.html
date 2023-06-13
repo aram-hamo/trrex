@@ -49,11 +49,26 @@ input{
   margin:0px;
   padding:0px;
 }
+body,input{
+  background-color:#181818;
+  color:#fff;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin: 0;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+}
 </style>
 <table id=game>
 </table>
 <table id=record>
 </table>
+<center>
 <div id=newGameButtons>
   <button id="newQueensGameButton" onclick="newGame('queens');">Queens</button>
   <button id="newLetooshGameButton" onclick="newGame('letoosh');">Letoosh</button>
@@ -61,6 +76,7 @@ input{
   <button id="newTrexGameButton" onclick="newGame('trex');">Trex</button>
   <button id="newDinnarGameButton" onclick="newGame('dinnar');">Dinnar</button>
 </div>
+</center>
 <script src=calc.js></script>
 <script>
 if('serviceWorker' in navigator){
