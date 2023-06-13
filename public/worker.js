@@ -1,4 +1,4 @@
-const staticContent = 'static-assets-v0';
+const staticContent = 'static-assets-v1';
 const assets = ['/','/icon.png',
 '/index.html','/calc.js',
 'languages.json', 'manifest.json'
