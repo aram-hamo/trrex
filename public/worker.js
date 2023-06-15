@@ -17,3 +17,15 @@ self.addEventListener('install', evt=> {
     await Promise.all(cachesToDelete.map(deleteCache));
   };
 });
+self.addEventListener('fetch', evt=> {
+  console.log("fetch");
+  evt.respondWith(
+    caches.match(evt.request).then(cacheRes => {
+      return cacheRes || fetch(evt.request).then(fetchRes => {
+        return caches.open(dynamicContent).then(cache =>{
+          cache.put(evt.request.url,fetchRes.clone());
+          return fetchRes;
+        })
+      });
+    }));
+});
