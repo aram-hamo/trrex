@@ -101,6 +101,7 @@ function updateUI(){
   document.getElementById("displayName1").value = displayNames["1"];
   document.getElementById("displayName2").value = displayNames["2"];
   document.getElementById("displayName3").value = displayNames["3"];
+
 }
 // }}}
 // {{{ updateRecords
@@ -111,6 +112,12 @@ function updateRecords(){
     "2":"Player 2",
     "3":"Player 3"
   };
+if(document.getElementById("displayName0") != null){
+  displayNames["0"] = document.getElementById("displayName0").value;
+  displayNames["1"] = document.getElementById("displayName1").value;
+  displayNames["2"] = document.getElementById("displayName2").value;
+  displayNames["3"] = document.getElementById("displayName3").value;
+}
   records = {
     "player-0":{},
     "player-1":{},
@@ -240,10 +247,10 @@ function newGame(gameType){
   document.getElementById("game").innerHTML +=`
     <tr id=players>
       <td>Game</td>
-      <td><input id="displayName0" value="Player 1"></td>
-      <td><input id="displayName1" value="Player 2"></td>
-      <td><input id="displayName2" value="Player 3"></td>
-      <td><input id="displayName3" value="Player 4"></td>
+      <td><input id="displayName0" value="" placeholder="Player 1"></td>
+      <td><input id="displayName1" value="" placeholder="Player 2"></td>
+      <td><input id="displayName2" value="" placeholder="Player 3"></td>
+      <td><input id="displayName3" value="" placeholder="Player 4"></td>
     </tr>`;
   document.getElementById("record").innerHTML +=`
     <tr id=records>
