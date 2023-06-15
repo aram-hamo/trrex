@@ -10,12 +10,15 @@ self.addEventListener('install', evt=> {
   caches.open(staticContent).then(cache=>{
     cache.addAll(assets);
   }))
-  async () => {
-    const cacheKeepList = staticContent;
-    const keyList = await caches.keys();
-    const cachesToDelete = keyList.filter((key) => !cacheKeepList.includes(key));
-    await Promise.all(cachesToDelete.map(deleteCache));
-  };
+if ('serviceWorker' in navigator) {
+  caches.keys().then(function(cacheNames) {
+    cacheNames.forEach(function(cacheName) {
+      if(cacheName != staticContent){
+        caches.delete(cacheName);
+      }
+    });
+  });
+}
 });
 self.addEventListener('fetch', evt=> {
   console.log("fetch");
