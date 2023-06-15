@@ -2,10 +2,10 @@
   "short_name": "Trex Calculator",
   "name": "Trex Calculator",
   "start_url": "/",
-  "background_color": "#fff",
+  "background_color": "#181818",
   "display": "standalone",
   "scope": "/",
-  "theme_color": "#fff",
+  "theme_color": "#181818",
   "icons": [{
     "src": "icon.png",
     "sizes": "512x512",
