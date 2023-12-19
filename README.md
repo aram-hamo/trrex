@@ -1,6 +1,7 @@
 ## Description
 A simple calculator for the famous Middle Eastern cards game Trex
 
+[trex.aramhamo.me](https://trex.aramhamo.me)
 ## Contact
 Aram Hamo - [contact@aramhamo.me](mailto:contact@aramhamo.me)
 
