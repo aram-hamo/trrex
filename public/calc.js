@@ -333,3 +333,4 @@ function newGame(gameType){
   updateUI();
 }
 /// }}}
+window.onbeforeunload = function() { return true }
